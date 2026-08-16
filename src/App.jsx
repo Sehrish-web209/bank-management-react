@@ -3,8 +3,9 @@ import AccountCard from "./components/AccountCard";
 import AccountTable from "./components/AccountTable";
 import TransactionList from "./components/TransactionList";
 import ActionButtons from "./components/ActionButtons";
-
+import { useState } from "react";
 function App() {
+  const [selectedAccountIndex, setSelectedAccountIndex] = useState(0);
   const accounts = [
     {
       name: "Sehrish",
@@ -63,10 +64,12 @@ function App() {
     <>
       <Header />
 
-      <AccountCard account={accounts[0]} />
+      <AccountCard account={accounts[selectedAccountIndex]} />
 
-      <AccountTable accounts={accounts} />
-
+      <AccountTable 
+        accounts={accounts} 
+        onAccountSelect={setSelectedAccountIndex}
+      />  
       <TransactionList transactions={transactions} />
 
       <ActionButtons />

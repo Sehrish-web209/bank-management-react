@@ -1,4 +1,4 @@
-function AccountTable({ accounts }) {
+function AccountTable({ accounts, onAccountSelect}) {
   return (
     <table>
       <thead>
@@ -10,8 +10,10 @@ function AccountTable({ accounts }) {
       </thead>
 
       <tbody>
-        {accounts.map((account) => (
-          <tr key={account.accountNumber}>
+        {accounts.map((account, index) => (
+          <tr key={account.accountNumber}
+            onClick={() => onAccountSelect(index)}
+          >  
             <td>{account.name}</td>
             <td>{account.accountNumber}</td>
             <td>Rs. {account.balance}</td>

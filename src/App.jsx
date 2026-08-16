@@ -6,7 +6,7 @@ import ActionButtons from "./components/ActionButtons";
 import { useState } from "react";
 function App() {
   const [selectedAccountIndex, setSelectedAccountIndex] = useState(0);
-  const accounts = [
+  const [accounts, setAccounts] = useState([
     {
       name: "Sehrish",
       accountNumber: "100001",
@@ -47,8 +47,20 @@ function App() {
       status: "Active",
       currency: "Rupees",
     },
-  ];
+  ]);
 
+  const handleCredit = () => {
+    setAccounts(
+    accounts.map((account, index) => {
+      if (index === selectedAccountIndex) {
+        return{...account,
+          balance: account.balance+5000,
+      };
+    }
+    return account;
+    })
+  );
+};
   const transactions = [
     {
       type: "Credit",
@@ -72,7 +84,7 @@ function App() {
       />  
       <TransactionList transactions={transactions} />
 
-      <ActionButtons />
+      <ActionButtons onCredit={handleCredit} />
     </>
   );
 }

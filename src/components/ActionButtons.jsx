@@ -1,7 +1,7 @@
-function ActionButtons() {
+function ActionButtons({onCredit}) {
     return (
         <div>
-            <button>Credit</button>
+            <button onClick={onCredit}>Credit</button>
             <button>Debit</button>
             <button>Transactions</button>
         </div>

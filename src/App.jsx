@@ -77,6 +77,7 @@ function App() {
       {
         type: "Credit",
         amount: Number(amount),
+        date: new Date(),
       },
       ], 
     };
@@ -107,6 +108,7 @@ function App() {
         {
           type: "Debit",
           amount: Number(amount),
+          date: new Date(),
         },
       ],
       };

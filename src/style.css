@@ -59,3 +59,54 @@ header p {
   border-radius: 10px;
   margin: 15px 0;
 }
+
+.transaction-section {
+  width: 90%;
+  max-width: 700px;
+  margin: 30px auto;
+}
+
+.transaction-title {
+  margin: 0 0 15px;
+  color: #1e3a8a;
+  text-align: left;
+}
+
+.transaction-list {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.transaction-item {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  align-items: center;
+  gap: 15px;
+  padding: 14px 16px;
+  margin-bottom: 8px;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+.transaction-item span:last-child {
+  text-align: right;
+  font-weight: 600;
+}
+.transaction-item.credit span:nth-child(2) {
+  color: #16a34a;
+}
+
+.transaction-item.debit span:nth-child(2) {
+  color: #dc2626;
+}
+
+.transaction-item.credit span:last-child {
+  color: #16a34a;
+}
+
+.transaction-item.debit span:last-child {
+  color: #dc2626;
+}

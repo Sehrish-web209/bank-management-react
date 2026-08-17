@@ -83,6 +83,7 @@ function App() {
      return account;
     })
   );
+  setAmount("");
 };
   const handleDebit = () => {
   if (!amount || Number(amount) <= 0) {
@@ -112,6 +113,7 @@ function App() {
       return account;
     })
   );
+  setAmount("");
 };
   return (
     <>

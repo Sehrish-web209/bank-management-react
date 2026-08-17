@@ -55,19 +55,20 @@ function App() {
   const [showTransactions, setShowTransactions] = useState(false);
   const handleShowTransactions = () => {
     setShowTransactions(true);
-};
+  };
+  const [amount, setAmount] = useState("");
 
   const handleCredit = () => {
     setAccounts(
     accounts.map((account, index) => {
       if (index === selectedAccountIndex) {
         return{...account,
-        balance: account.balance+5000,
+        balance: account.balance+Number(amount),
         transactions: [
       ...account.transactions,
       {
         type: "Credit",
-        amount: 5000,
+        amount: Number(amount),
       },
       ], 
     };
@@ -82,12 +83,12 @@ const handleDebit = () => {
       if (index === selectedAccountIndex) {
         return {
         ...account,
-        balance: account.balance-3000,
+        balance: account.balance-Number(amount),
         transactions: [
         ...account.transactions,
         {
           type: "Debit",
-          amount: 3000,
+          amount: Number(amount),
         },
       ],
       };
@@ -101,7 +102,12 @@ const handleDebit = () => {
       <Header />
 
       <AccountCard account={accounts[selectedAccountIndex]} />
-
+      <input
+      type="number"
+      value={amount}
+      onChange={(e) => setAmount(e.target.value)}
+      placeholder="Enter amount"
+    />
       <AccountTable 
       accounts={accounts} 
       onAccountSelect={(index) => {

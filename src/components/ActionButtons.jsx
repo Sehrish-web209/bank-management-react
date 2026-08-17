@@ -1,11 +1,10 @@
-function ActionButtons({onCredit}) {
+function ActionButtons({onCredit,onDebit}) {
     return (
         <div>
             <button onClick={onCredit}>Credit</button>
-            <button>Debit</button>
+            <button onClick={onDebit}>Debit</button>
             <button>Transactions</button>
         </div>
     );
 }
-
 export default ActionButtons;

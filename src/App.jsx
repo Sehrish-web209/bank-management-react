@@ -61,6 +61,19 @@ function App() {
     })
   );
 };
+const handleDebit = () => {
+  setAccounts(
+    accounts.map((account, index) => {
+      if (index === selectedAccountIndex) {
+        return {
+          ...account,
+          balance: account.balance-3000,
+        };
+      }
+      return account;
+    })
+  );
+};
   const transactions = [
     {
       type: "Credit",
@@ -84,7 +97,9 @@ function App() {
       />  
       <TransactionList transactions={transactions} />
 
-      <ActionButtons onCredit={handleCredit} />
+      <ActionButtons onCredit={handleCredit} 
+      onDebit={handleDebit}
+      />
     </>
   );
 }

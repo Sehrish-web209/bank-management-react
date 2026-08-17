@@ -90,6 +90,10 @@ function App() {
   return;
   }
   setError("");
+  if (Number(amount) > accounts[selectedAccountIndex].balance) {
+  setError("Insufficient balance");
+  return;
+  }
   setAccounts(
     accounts.map((account, index) => {
       if (index === selectedAccountIndex) {

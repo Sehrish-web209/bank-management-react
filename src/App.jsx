@@ -16,6 +16,7 @@ function App() {
       IBAN: "PK-BR001-100001",
       status: "Active",
       currency: "Rupees",
+      transactions: [],
     },
     {
       name: "Mehwish",
@@ -26,6 +27,7 @@ function App() {
       IBAN: "PK-BR001-100002",
       status: "Active",
       currency: "Rupees",
+      transactions: [],
     },
     {
     name: "Ali",
@@ -36,6 +38,7 @@ function App() {
     IBAN: "PK-BR001-100003",
     status: "Active",
     currency: "Rupees",
+    transactions: [],
   },
     {
       name: "Ayesha",
@@ -46,18 +49,30 @@ function App() {
       IBAN: "PK-BR001-100004",
       status: "Active",
       currency: "Rupees",
+      transactions: [],
     },
   ]);
+  const [showTransactions, setShowTransactions] = useState(false);
+  const handleShowTransactions = () => {
+    setShowTransactions(true);
+};
 
   const handleCredit = () => {
     setAccounts(
     accounts.map((account, index) => {
       if (index === selectedAccountIndex) {
         return{...account,
-          balance: account.balance+5000,
-      };
-    }
-    return account;
+        balance: account.balance+5000,
+        transactions: [
+      ...account.transactions,
+      {
+        type: "Credit",
+        amount: 5000,
+      },
+      ], 
+    };
+  }
+     return account;
     })
   );
 };
@@ -66,25 +81,21 @@ const handleDebit = () => {
     accounts.map((account, index) => {
       if (index === selectedAccountIndex) {
         return {
-          ...account,
-          balance: account.balance-3000,
-        };
+        ...account,
+        balance: account.balance-3000,
+        transactions: [
+        ...account.transactions,
+        {
+          type: "Debit",
+          amount: 3000,
+        },
+      ],
+      };
       }
       return account;
     })
   );
 };
-  const transactions = [
-    {
-      type: "Credit",
-      amount: 5000,
-    },
-    {
-      type: "Debit",
-      amount: 3000,
-    },
-  ];
-
   return (
     <>
       <Header />
@@ -92,13 +103,22 @@ const handleDebit = () => {
       <AccountCard account={accounts[selectedAccountIndex]} />
 
       <AccountTable 
-        accounts={accounts} 
-        onAccountSelect={setSelectedAccountIndex}
+      accounts={accounts} 
+      onAccountSelect={(index) => {
+      setSelectedAccountIndex(index);
+      setShowTransactions(false);
+  }}
       />  
-      <TransactionList transactions={transactions} />
+      
+      {showTransactions && (
+      <TransactionList 
+      transactions={accounts[selectedAccountIndex].transactions} />
+      )}
 
-      <ActionButtons onCredit={handleCredit} 
+      <ActionButtons
+      onCredit={handleCredit} 
       onDebit={handleDebit}
+      onTransactions={handleShowTransactions}
       />
     </>
   );

@@ -57,8 +57,15 @@ function App() {
     setShowTransactions(true);
   };
   const [amount, setAmount] = useState("");
+  const [error, setError] = useState("");
 
-  const handleCredit = () => {
+    const handleCredit = () => {
+    if (!amount || Number(amount) <= 0) {
+    setError("Please enter a valid amount");
+    return;
+    }
+    setError("");
+
     setAccounts(
     accounts.map((account, index) => {
       if (index === selectedAccountIndex) {
@@ -77,7 +84,12 @@ function App() {
     })
   );
 };
-const handleDebit = () => {
+  const handleDebit = () => {
+  if (!amount || Number(amount) <= 0) {
+  setError("Please enter a valid amount");
+  return;
+  }
+  setError("");
   setAccounts(
     accounts.map((account, index) => {
       if (index === selectedAccountIndex) {
@@ -102,12 +114,14 @@ const handleDebit = () => {
       <Header />
 
       <AccountCard account={accounts[selectedAccountIndex]} />
-      <input
-      type="number"
-      value={amount}
-      onChange={(e) => setAmount(e.target.value)}
-      placeholder="Enter amount"
+     
+    <input
+    type="number"
+    value={amount}
+    onChange={(e) => setAmount(e.target.value)}
+    placeholder="Enter amount"
     />
+    {error && <p>{error}</p>}
       <AccountTable 
       accounts={accounts} 
       onAccountSelect={(index) => {

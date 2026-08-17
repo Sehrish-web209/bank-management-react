@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+header {
+  text-align: center;
+  padding: 35px 20px;
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  color: white;
+  border-radius: 0 0 18px 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+header h1 {
+  margin: 0 0 9px;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+header p {
+  margin: 0;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.account-card {
+  background-color: #eff6ff;;
+  width: 90%;
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+}
+
+.account-card h2 {
+  font-size:25px;  
+  margin-bottom: 18px;
+  color: #1e3a8a;
+}
+
+.account-card p {
+  margin: 8px 0;
+  color: #374151;
+}
+
+.account-balance {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e3a8a;
+  background-color: white;
+  padding: 12px 15px;
+  border-radius: 10px;
+  margin: 15px 0;
+}

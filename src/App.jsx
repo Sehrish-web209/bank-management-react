@@ -4,6 +4,7 @@ import AccountTable from "./components/AccountTable";
 import TransactionList from "./components/TransactionList";
 import ActionButtons from "./components/ActionButtons";
 import { useState } from "react";
+import "./style.css";
 function App() {
   const [selectedAccountIndex, setSelectedAccountIndex] = useState(0);
   const [accounts, setAccounts] = useState([

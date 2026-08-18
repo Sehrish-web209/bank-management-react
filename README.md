@@ -4,6 +4,25 @@ A responsive **Bank Management System dashboard built with React.js**. The appli
 
 This project was developed as a React.js assignment with a focus on **component-based development, state management, props, event handling, responsive UI, and dynamic account operations**.
 
+## 📑 Table of Contents
+
+- [Live Demo](#-live-demo)
+- [Features](#-features)
+- [Technologies Used](#️-technologies-used)
+- [Dashboard Overview](#️-dashboard-overview)
+- [Account Operations](#-account-operations)
+- [React Components](#-react-components)
+- [React Concepts Demonstrated](#-react-concepts-demonstrated)
+- [Project Structure](#-project-structure)
+- [Getting Started](#-getting-started)
+- [Deployment](#-deployment)
+- [SEO & Search Visibility](#-seo--search-visibility)
+- [UI & Design](#-ui--design)
+- [Responsive Design](#-responsive-design)
+- [Assignment Requirements Covered](#-assignment-requirements-covered)
+- [References](#-references)
+- [Author](#-author)
+
 ## ✨ Features
 
 * Clean and responsive banking dashboard
@@ -32,7 +51,7 @@ This project was developed as a React.js assignment with a focus on **component-
 * **Git & GitHub**
 * **GitHub Pages**
 
-## 🖥️ Dashboard Overview
+##  Dashboard Overview
 
 The dashboard is organized into several sections:
 
@@ -73,8 +92,6 @@ Transactions are stored dynamically for each account and displayed with:
 * Transaction amount
 
 Credit transactions and outgoing transactions are visually distinguished to make the history easier to read.
-
----
 
 ## ⚙️ How the Application Works
 
@@ -139,8 +156,6 @@ The application then:
 Each account has its own transaction history.
 
 Transactions are stored with their type, amount, and date/time and are displayed in the **Recent Transactions** section when requested.
-
----
 
 ## 🧩 React Components
 
@@ -269,8 +284,11 @@ The project is intended to be deployed using **GitHub Pages** so that the comple
 
 After configuring GitHub Pages for the repository, the generated production build can be published and used as the live version of the project.
 
-**Live Demo:**
-Add your GitHub Pages deployment link here after deployment.
+## 🚀Live Demo
+
+[View my Bank Management System Web Page](https://sehrish-web209.github.io/bank-management-react/)
+
+The application is deployed using GitHub Pages and can be accessed directly from the link above.
 
 ## 🔍 SEO & Search Visibility
 

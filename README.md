@@ -284,7 +284,7 @@ The project is intended to be deployed using **GitHub Pages** so that the comple
 
 After configuring GitHub Pages for the repository, the generated production build can be published and used as the live version of the project.
 
-## 🚀Live Demo
+## 🚀 Live Demo
 
 [View my Bank Management System Web Page](https://sehrish-web209.github.io/bank-management-react/)
 

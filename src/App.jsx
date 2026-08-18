@@ -119,6 +119,65 @@ function App() {
   );
   setAmount("");
 };
+  const handleTransfer = () => {
+  if (!transferTo) {
+    setError("Please select an account to transfer to");
+    return;
+  }
+
+  if (!amount || Number(amount) <= 0) {
+    setError("Please enter a valid amount");
+    return;
+  }
+
+  if (Number(amount) > accounts[selectedAccountIndex].balance) {
+    setError("Insufficient balance");
+    return;
+  }
+
+  const transferAmount = Number(amount);
+  const receiverIndex = Number(transferTo);
+
+  setAccounts(
+    accounts.map((account, index) => {
+      if (index === selectedAccountIndex) {
+        return {
+          ...account,
+          balance: account.balance - transferAmount,
+          transactions: [
+            ...account.transactions,
+            {
+              type: "Transfer Sent",
+              amount: transferAmount,
+              date: new Date(),
+            },
+          ],
+        };
+      }
+
+      if (index === receiverIndex) {
+        return {
+          ...account,
+          balance: account.balance + transferAmount,
+          transactions: [
+            ...account.transactions,
+            {
+              type: "Transfer Received",
+              amount: transferAmount,
+              date: new Date(),
+            },
+          ],
+        };
+      }
+
+      return account;
+    })
+  );
+
+  setAmount("");
+  setTransferTo("");
+  setError("");
+};
   return (
     <>
     <Header />
@@ -171,6 +230,7 @@ function App() {
     <ActionButtons
     onCredit={handleCredit}
     onDebit={handleDebit}
+    onTransfer={handleTransfer}
     onTransactions={handleShowTransactions}
   />
   </div>

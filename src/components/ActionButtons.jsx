@@ -1,6 +1,6 @@
 function ActionButtons({onCredit,onDebit,onTransactions}) {
     return (
-        <div>
+        <div className="action-buttons">
             <button onClick={onCredit}>Credit</button>
             <button onClick={onDebit}>Debit</button>
             <button onClick={onTransactions}>Transactions</button>

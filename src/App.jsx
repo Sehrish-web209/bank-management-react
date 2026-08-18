@@ -122,34 +122,39 @@ function App() {
     <>
       <Header />
 
-      <AccountCard account={accounts[selectedAccountIndex]} />
-     
+  <AccountCard account={accounts[selectedAccountIndex]} />
+  <AccountTable 
+  accounts={accounts} 
+  onAccountSelect={(index) => {
+  setSelectedAccountIndex(index);
+  setShowTransactions(false);
+  }}
+  />  
+
+  <div className="quick-actions">
+    <h2>Quick Actions</h2> 
+    <div className="amount-section">
+    <label>Transaction Amount</label>
     <input
     type="number"
     value={amount}
     onChange={(e) => setAmount(e.target.value)}
     placeholder="Enter amount"
     />
+    </div>
     {error && <p>{error}</p>}
-      <AccountTable 
-      accounts={accounts} 
-      onAccountSelect={(index) => {
-      setSelectedAccountIndex(index);
-      setShowTransactions(false);
-  }}
-      />  
+    <ActionButtons
+    onCredit={handleCredit}
+    onDebit={handleDebit}
+    onTransactions={handleShowTransactions}
+  />
+  </div>
       
-      {showTransactions && (
-      <TransactionList 
-      transactions={accounts[selectedAccountIndex].transactions} />
-      )}
-
-      <ActionButtons
-      onCredit={handleCredit} 
-      onDebit={handleDebit}
-      onTransactions={handleShowTransactions}
-      />
-    </>
+  {showTransactions && (
+  <TransactionList 
+  transactions={accounts[selectedAccountIndex].transactions} />
+  )}
+  </>
   );
 }
 

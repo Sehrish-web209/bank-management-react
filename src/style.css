@@ -42,6 +42,7 @@ header p {
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   border: 1px solid #e5e7eb;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .account-card h2 {
@@ -56,6 +57,11 @@ header p {
   color: #374151;
 }
 
+.account-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
 .account-balance {
   font-size: 24px;
   font-weight: 700;
@@ -68,14 +74,27 @@ header p {
 
 .transaction-section {
   width: 90%;
-  max-width: 700px;
+  max-width: 900px;
   margin: 30px auto;
+  padding: 25px;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.transaction-section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .transaction-title {
-  margin: 0 0 15px;
+  margin: 0 0 20px;
   color: #1e3a8a;
-  text-align: left;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
 }
 
 .transaction-list {
@@ -144,7 +163,7 @@ td {
 
 tbody tr {
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 tbody tr:hover {

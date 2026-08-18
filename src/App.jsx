@@ -59,6 +59,7 @@ function App() {
   };
   const [amount, setAmount] = useState("");
   const [error, setError] = useState("");
+  const [transferTo, setTransferTo] = useState("");
 
     const handleCredit = () => {
     if (!amount || Number(amount) <= 0) {
@@ -120,19 +121,43 @@ function App() {
 };
   return (
     <>
-      <Header />
+    <Header />
 
   <AccountCard account={accounts[selectedAccountIndex]} />
+  <div className="accounts-heading">
+  <div>
+    <h2>Accounts Overview</h2>
+    <p>Manage and view your accounts</p>
+  </div>
+  </div>
   <AccountTable 
   accounts={accounts} 
   onAccountSelect={(index) => {
   setSelectedAccountIndex(index);
   setShowTransactions(false);
+  setTransferTo("");
   }}
   />  
 
   <div className="quick-actions">
     <h2>Quick Actions</h2> 
+    <div className="transfer-section">
+    <label>Transfer To</label>
+
+    <select
+      value={transferTo}
+      onChange={(e) => setTransferTo(e.target.value)} >
+      <option value="">Select Account</option>
+
+      {accounts.map((account, index) => (
+        index !== selectedAccountIndex && (
+          <option key={account.accountNumber} value={index}>
+            {account.name} - {account.accountNumber}
+          </option>
+        )
+      ))}
+    </select>
+  </div>
     <div className="amount-section">
     <label>Transaction Amount</label>
     <input

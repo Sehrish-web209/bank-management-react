@@ -48,6 +48,7 @@ header p {
   font-size:25px;  
   margin-bottom: 18px;
   color: #1e3a8a;
+  text-align:center;
 }
 
 .account-card p {
@@ -220,10 +221,60 @@ tbody tr:last-child td {
 
 .quick-actions h2 {
   margin: 0;
-  text-align: left;
+  text-align: center;
   color: #1e3a8a;
   font-size: 21px;
   font-weight: 700;
   padding-bottom: 15px;
   border-bottom: 1px solid #e5e7eb;
+}
+
+.accounts-heading {
+width: 90%;
+max-width: 900px;
+margin: 35px auto 10px;
+text-align: center;
+}
+
+.accounts-heading h2 {
+  margin: 0;
+  color: #1e3a8a;
+  font-size: 22px;
+}
+
+.accounts-heading p {
+  margin: 4px 0 0;
+  color: #64748b;
+  font-size: 17px;
+}
+.transfer-section {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.transfer-section label {
+  font-size: 18px;
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #1e3a8a;
+  text-align: center;
+}
+
+.transfer-section select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: white;
+  color: #374151;
+  outline: none;
+  cursor: pointer;
+}
+
+.transfer-section select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
 }
